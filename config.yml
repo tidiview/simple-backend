@@ -52,3 +52,8 @@ collections:
               - {label: Address, name: address, widget: string}
 media_folder: "/images/uploads"
 public_folder: "/images/uploads"
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: your_cloud_name
+    api_key: your_api_key
