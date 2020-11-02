@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: test-repo
   repo:  tidiview/simple-backend  # Path to your GitHub repository
   open_authoring: false
 publish_mode: editorial_workflow
