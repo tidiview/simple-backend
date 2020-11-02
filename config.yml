@@ -1,7 +1,7 @@
 backend:
   name: github
   repo:  tidiview/simple-backend  # Path to your GitHub repository
-  open_authoring: true
+  open_authoring: false
 publish_mode: editorial_workflow
 collections:
   - label: "Blog in English"
