@@ -1,5 +1,5 @@
 backend:
-  name: test-repo
+  name: github
   repo:  tidiview/simple-backend  # Path to your GitHub repository
   branch: gh-pages
   open_authoring: false
