@@ -4,7 +4,21 @@ backend:
   branch: gh-pages
   open_authoring: false
   base-url: https://simple-backend-oauth.herokuapp.com
+site_url: https://tidiview.github.io/simple-backend/
+logo_url: https://avatars0.githubusercontent.com/u/14911996?s=96&v=4
 publish_mode: editorial_workflow
+media_folder: "/images/uploads"
+public_folder: "/images/uploads"
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: your_cloud_name
+    api_key: your_api_key
+show_preview_links: false
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
 collections:
   - label: "Blog in English"
     name: "english_posts"
@@ -52,18 +66,3 @@ collections:
             fields:
               - {label: Name, name: name, widget: string}
               - {label: Address, name: address, widget: string}
-media_folder: "/images/uploads"
-public_folder: "/images/uploads"
-media_library:
-  name: cloudinary
-  config:
-    cloud_name: your_cloud_name
-    api_key: your_api_key
-site_url: https://github.com/tidiview/simple-backend
-display_url: https://github.com/tidiview/simple-backend
-logo_url: https://avatars0.githubusercontent.com/u/14911996?s=96&v=4
-show_preview_links: false
-slug:
-  encoding: "ascii"
-  clean_accents: true
-  sanitize_replacement: "_"
