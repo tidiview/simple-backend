@@ -1,7 +1,9 @@
 backend:
   name: test-repo
   repo:  tidiview/simple-backend  # Path to your GitHub repository
+  branch: gh-pages
   open_authoring: false
+  base-url: https://simple-backend-oauth.herokuapp.com
 publish_mode: editorial_workflow
 collections:
   - label: "Blog in English"
