@@ -4,6 +4,7 @@ backend:
   base-url: https://simple-backend-oauth.herokuapp.com
   auth_endpoint: /auth
   auth_type: implicit # Required for implicit grant
+  site_domain: location.hostname
   api_root: https://simple-backend-oauth.herokuapp.com
   site_url: https://tidiview.github.io/simple-backend
   display_url: https://tidiview.github.io/simple-backend
