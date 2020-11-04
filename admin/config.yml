@@ -2,7 +2,8 @@ backend:
   name: github
   repo:  tidiview/simple-backend  # Path to your GitHub repository
   branch: master
-  base_url: https://simple-backend-oauth.herokuapp.com/oauth
+  base_url: https://simple-backend-oauth.herokuapp.com/
+  auth_endpoint: /auth
 site_url: https://tidiview.github.io/simple-backend/
 
 logo_url: https://avatars0.githubusercontent.com/u/14911996?s=96&v=4
