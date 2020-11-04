@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+    <link rel="stylesheet" href="https://unpkg.com/netlify-cms/dist/cms.js" />
+  </head>
+  <body>
+    <a href="./admin" class="admin-btn">Go to the NetlifyCMS</a>
+    <hr>
+    <p>I am the home page living in index.html with the following script</p>
+    <hr>
+    <code>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+    </code>
+    <script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+  </body>
+</html>
