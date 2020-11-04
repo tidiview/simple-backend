@@ -3,7 +3,8 @@ backend:
   repo:  tidiview/simple-backend  # Path to your GitHub repository
   base-url: https://simple-backend-oauth.herokuapp.com
   auth_endpoint: /auth
-  site_id: localhost
+  auth_type: implicit # Required for implicit grant
+  api_root: https://simple-backend-oauth.herokuapp.com
   site_url: https://tidiview.github.io/simple-backend
   display_url: https://tidiview.github.io/simple-backend
 
