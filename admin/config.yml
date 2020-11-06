@@ -25,7 +25,7 @@ collections:
     name: "_posts"
     folder: "_posts"
     create: true
-    filter: {field: "language", value: "en"}
+    # filter: {field: "language", value: "en"}
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Content", name: "body", widget: "markdown"}
