@@ -6,31 +6,18 @@
     <link rel="stylesheet" href="https://unpkg.com/netlify-cms/dist/cms.js" />
   </head>
   <body>
-    <a href="./admin" class="admin-btn">Go to the NetlifyCMS</a>
+    <a href="./admin" style="
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;">Go to the NetlifyCMS</a>
     <hr>
-    <p>I am the home page living in index.html with the following script</p>
+    <p>I am the home page living in index.html</p>
     <hr>
-    <code>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-    </code>
-    <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
+    <p>I am also the page calling for the Google Docs API</p>
   </body>
 </html>
