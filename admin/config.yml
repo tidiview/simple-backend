@@ -21,30 +21,24 @@ slug:
   clean_accents: true
   sanitize_replacement: "_"
 collections:
-  - label: "Blog in English"
-    name: "english_posts"
+  - label: "Blog"
+    name: "_posts"
     folder: "_posts"
     create: true
     filter: {field: "language", value: "en"}
     fields:
-      - {label: "Language", name: "language", widget: "select", options: ["en", "es"]}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Content", name: "body", widget: "markdown"}
-  - label: "Blog en Español"
-    name: "spanish_posts"
-    folder: "_posts"
-    create: true
-    filter: {field: "language", value: "es"}
-    fields:
-      - {label: "Lenguaje", name: "language", widget: "select", options: ["en", "es"]}
-      - {label: "Titulo", name: "title", widget: "string"}
-      - {label: "Contenido", name: "body", widget: "markdown"}
+    extension: "json"
+    format: "json"
+    json-frontmatter: true
   - label: "Pages"
     name: "pages"
     files:
       - label: "About Page"
         name: "about"
-        file: "site/content/about.yml"
+        file: "site/content/about.json"
+        extension: "json"
         fields:
           - {label: Title, name: title, widget: string}
           - {label: Intro, name: intro, widget: markdown}
@@ -55,15 +49,3 @@ collections:
               - {label: Name, name: name, widget: string}
               - {label: Position, name: position, widget: string}
               - {label: Photo, name: photo, widget: image}
-      - label: "Locations Page"
-        name: "locations"
-        file: "site/content/locations.yml"
-        fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Intro, name: intro, widget: markdown}
-          - label: Locations
-            name: locations
-            widget: list
-            fields:
-              - {label: Name, name: name, widget: string}
-              - {label: Address, name: address, widget: string}
