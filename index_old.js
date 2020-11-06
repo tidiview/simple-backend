@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// [START drive_quickstart]
+// [START docs_quickstart]
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
 
 // If modifying these scopes, delete token.json.
-const SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
+const SCOPES = ['https://www.googleapis.com/auth/documents.readonly'];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
@@ -29,8 +29,8 @@ const TOKEN_PATH = 'token.json';
 // Load client secrets from a local file.
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
-  // Authorize a client with credentials, then call the Google Drive API.
-  authorize(JSON.parse(content), listFiles);
+  // Authorize a client with credentials, then call the Google Docs API.
+  authorize(JSON.parse(content), printDocTitle);
 });
 
 /**
@@ -40,13 +40,14 @@ fs.readFile('credentials.json', (err, content) => {
  * @param {function} callback The callback to call with the authorized client.
  */
 function authorize(credentials, callback) {
-  const {client_secret, client_id, redirect_uris} = credentials.installed;
+  // use "credentials.web" if your app is of type web server/web app instead of credentials.installed
+  const {client_secret, client_id, redirect_uris} = credentials.web;
   const oAuth2Client = new google.auth.OAuth2(
       client_id, client_secret, redirect_uris[0]);
 
   // Check if we have previously stored a token.
   fs.readFile(TOKEN_PATH, (err, token) => {
-    if (err) return getAccessToken(oAuth2Client, callback);
+    if (err) return getNewToken(oAuth2Client, callback);
     oAuth2Client.setCredentials(JSON.parse(token));
     callback(oAuth2Client);
   });
@@ -58,7 +59,7 @@ function authorize(credentials, callback) {
  * @param {google.auth.OAuth2} oAuth2Client The OAuth2 client to get token for.
  * @param {getEventsCallback} callback The callback for the authorized client.
  */
-function getAccessToken(oAuth2Client, callback) {
+function getNewToken(oAuth2Client, callback) {
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline',
     scope: SCOPES,
@@ -75,7 +76,7 @@ function getAccessToken(oAuth2Client, callback) {
       oAuth2Client.setCredentials(token);
       // Store the token to disk for later program executions
       fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
-        if (err) return console.error(err);
+        if (err) console.error(err);
         console.log('Token stored to', TOKEN_PATH);
       });
       callback(oAuth2Client);
@@ -84,30 +85,22 @@ function getAccessToken(oAuth2Client, callback) {
 }
 
 /**
- * Lists the names and IDs of up to 10 files.
- * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
+ * Prints the title of a sample doc:
+ * https://docs.google.com/document/d/195j9eDD3ccgjQRttHhJPymLJUCOUjs-jmwTrekvdjFE/edit
+ * @param {google.auth.OAuth2} auth The authenticated Google OAuth 2.0 client.
  */
-function listFiles(auth) {
-  const drive = google.drive({version: 'v3', auth});
-  drive.files.list({
-    pageSize: 10,
-    fields: 'nextPageToken, files(id, name)',
+function printDocTitle(auth) {
+  const docs = google.docs({version: 'v1', auth});
+  docs.documents.get({
+    documentId: '195j9eDD3ccgjQRttHhJPymLJUCOUjs-jmwTrekvdjFE',
   }, (err, res) => {
     if (err) return console.log('The API returned an error: ' + err);
-    const files = res.data.files;
-    if (files.length) {
-      console.log('Files:');
-      files.map((file) => {
-        console.log(`${file.name} (${file.id})`);
-      });
-    } else {
-      console.log('No files found.');
-    }
+    console.log(`The title of the document is: ${res.data.title}`);
   });
 }
-// [END drive_quickstart]
+// [END docs_quickstart]
 
 module.exports = {
   SCOPES,
-  listFiles,
+  printDocTitle,
 };
