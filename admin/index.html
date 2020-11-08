@@ -12,7 +12,7 @@
         id: 'separator',
         label: '---',
         // A bogus field so that the component doesn't look weird when rendered:
-        fields: [{ label: 'Separator', widget: 'select', options: ['---'], default: '---' }],
+        fields: [{ label: 'Separator', widget: 'select', options: ['horizontal rule'], default: '---' }],
         // Never match anything so that the separator will be recognized as a horizontal rule when the document is reloaded:
         pattern: /.^/,
         toBlock(obj) {
@@ -22,6 +22,37 @@
           return '<hr>';
         }
       });
+    </script>
+    <script>  
+      CMS.registerEditorComponent({
+        // Internal id of the component
+        id: "ruby",
+        // Visible label
+        label: "ふりがな",
+        // Fields the user need to fill out when adding an instance of the component
+        fields: [{name: 'ruby', label: 'ruby base', widget: 'string'}, {name: 'rt', label: 'ruby text', widget: 'string'}],
+        // Pattern to identify a block as being an instance of this component
+        pattern: /([^\s]+)/,
+        // Function to extract data elements from the regexp match
+        fromBlock: function(match) {
+          return {
+            ruby: match[1],
+            rt: match[2],
+          };
+        },
+        // Function to create a text block from an instance of this component
+        toBlock: function(obj) {
+          return '{r}' + obj.ruby + '(' + obj.rt + '){/r}';
+        },
+        // Preview output for this component. Can either be a string or a React component
+        // (component gives better render performance)
+        toPreview: function(obj) {
+          return (
+            '<ruby>' + obj.ruby + '<rp>（</rp><rt>' + obj.rt + '</rt><rp>）</rp>' + '</ruby>'
+          );
+        }
+      });
+</script>
     </script>
   </body>
 </html>
