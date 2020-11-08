@@ -50,9 +50,9 @@
         // Preview output for this component. Can either be a string or a React component
         // (component gives better render performance)
         toPreview: function(obj) {
-          return (
-            <ruby>{obj.ruby}<rp>（</rp><rt>{obj.rt}</rt><rp>）</rp></ruby>
-          );
+          return 
+            '<p><ruby>' + obj.ruby + '<rp>（</rp><rt>' + obj.rt + '</rt><rp>）</rp></ruby></p>'
+          ;
         }
       });
     </script>
