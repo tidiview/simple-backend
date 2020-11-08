@@ -29,13 +29,13 @@
     <script>  
       CMS.registerEditorComponent({
         // Internal id of the component
-        id: "ruby",
+        id: "ruby8",
         // Visible label
         label: "ふりがな",
         // Fields the user need to fill out when adding an instance of the component
         fields: [{name: 'ruby', label: 'ruby base', widget: 'string'}, {name: 'rt', label: 'ruby text', widget: 'string'}],
         // Pattern to identify a block as being an instance of this component
-        pattern: /^{r}(\S+){\/r}$/,
+        pattern: /{r}(\S+){\/r}/,
         // Function to extract data elements from the regexp match
         fromBlock: function(match) {
           return {
