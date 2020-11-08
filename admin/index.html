@@ -29,7 +29,7 @@
     <script>  
       CMS.registerEditorComponent({
         // Internal id of the component
-        id: "ruby8",
+        id: "ruby9",
         // Visible label
         label: "ふりがな",
         // Fields the user need to fill out when adding an instance of the component
@@ -51,8 +51,7 @@
         // (component gives better render performance)
         toPreview: function(obj) {
           return 
-            '<p><ruby>' + obj.ruby + '<rp>（</rp><rt>' + obj.rt + '</rt><rp>）</rp></ruby></p>'
-          ;
+            <ruby>obj.ruby<rp>（</rp><rt>obj.rt</rt><rp>）</rp></ruby>;
         }
       });
     </script>
