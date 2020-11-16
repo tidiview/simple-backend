@@ -27,9 +27,7 @@ collections:
     create: true
     # filter: {field: "language", value: "en"}
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Content", name: "body", widget: "markdown"}
-      - {label: "Test Widget", name: "test_widget", widget: "ckeditor"}
+      - {label: "Test Widget", name: "test_widget", widget: "jsonschema"}
     extension: "json"
     format: "json"
     json-frontmatter: true
