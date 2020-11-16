@@ -8,37 +8,11 @@
 
     <!-- Include the script that builds the page and powers Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-    <script src="https://unpkg.com/netlify-cms-widget-jsonschema@0.1.3"></script>
+    <script src="https://unpkg.com/netlify-cms-widget-ckeditor@0.0.1"></script>
     
     <script>
-      const schema = {
-        /* SCHEMA */
-        "title": "A registration form",
-        "description": "A simple form example.",
-        "type": "object",
-        "required": [
-          "firstName",
-          "lastName"
-        ],
-        "properties": {
-          "firstName": {
-            "type": "string",
-            "title": "First name",
-            "default": "Chuck"
-          },
-          "lastName": {
-            "type": "string",
-            "title": "Last name"
-          },
-          "telephone": {
-            "type": "string",
-            "title": "Telephone",
-            "minLength": 10
-          }
-        }
-      };
       CMS.registerWidget('jsonschema', window.CkeditorControl, window.CkeditorPreview)
     </script>
-netlify-cms-responsive-block-widget
+
   </body>
 </html>
