@@ -29,14 +29,7 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Content", name: "body", widget: "markdown"}
-      - { 
-          name: 'test_widget',
-          label: 'Test Widget',
-          widget: 'async-select',
-          url: 'https://jsonplaceholder.typicode.com/users',
-          valueField: 'id',
-          displayField: 'name',
-        },
+      - {label: "Test Widget", name: "test_widget", widget: "async-select", url: "https://jsonplaceholder.typicode.com/users", valueField: "id", displayField: "name"}
     extension: "json"
     format: "json"
     json-frontmatter: true
