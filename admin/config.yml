@@ -27,7 +27,9 @@ collections:
     create: true
     # filter: {field: "language", value: "en"}
     fields:
-      - {label: "Test Widget", name: "test_widget", widget: "async-select", url: "https://jsonplaceholder.typicode.com/users", valueField: "id", displayField: "name"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Content", name: "body", widget: "markdown"}
+      - {label: "Test Widget", name: "test_widget", widget: "ckeditor"}
     extension: "json"
     format: "json"
     json-frontmatter: true

@@ -8,11 +8,11 @@
 
     <!-- Include the script that builds the page and powers Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-    <script src="https://unpkg.com/netlify-cms-widget-async-select@^1.0.0"></script>
-
-    <script>
-      CMS.registerWidget('async-select', window.asyncSelectControl, window.asyncSelectPreview)
-    </script>
+    <script src="https://unpkg.com/netlify-cms-widget-ckeditor@^0.0.1"></script>
     
+    <script>
+      CMS.registerWidget('ckeditor', window.CkeditorControl, window.CkeditorPreview)
+    </script>
+
   </body>
 </html>
