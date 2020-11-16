@@ -29,7 +29,7 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Content", name: "body", widget: "markdown"}
-      - {label: "Content", name: "body2", widget: "ckeditor"}
+      - {label: "Content2", name: "body2", widget: "ckeditor"}
     extension: "json"
     format: "json"
     json-frontmatter: true
