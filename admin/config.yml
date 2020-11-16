@@ -25,9 +25,9 @@ collections:
     name: "_posts"
     folder: "_posts"
     create: true
-    # filter: {field: "language", value: "en"}
     fields:
-      - {label: "Test Widget", name: "test_widget", widget: "ckeditor"}
+      - {label: Test_Widget, name: test_widget, widget: ckeditor}
+      - {label: Intro, name: intro, widget: markdown}
     extension: "json"
     format: "json"
     json-frontmatter: true
@@ -41,10 +41,3 @@ collections:
         fields:
           - {label: Title, name: title, widget: string}
           - {label: Intro, name: intro, widget: markdown}
-          - label: Team
-            name: team
-            widget: list
-            fields:
-              - {label: Name, name: name, widget: string}
-              - {label: Position, name: position, widget: string}
-              - {label: Photo, name: photo, widget: image}
