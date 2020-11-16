@@ -1,9 +1,0 @@
-{
-  "custom-field": "title",
-  "custom-object": {
-    "custom-text": "This is a text\nwith several lines"
-  },
-  "custom-list": [
-    {}
-  ]
-}
